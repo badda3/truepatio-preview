@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>True Patio LLC — NJ Outdoor Living Specialists</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green-deep: #1a3a1a;
+  --green-mid: #2d5a27;
+  --green-bright: #4a8c3f;
+  --green-light: #6bbf5f;
+  --green-pale: #c8e8c3;
+  --green-wash: #eef7ec;
+  --black: #0d0d0d;
+  --off-white: #f5f5f0;
+  --warm-white: #fafaf7;
+  --text-muted: #6b7c6b;
+  --border-light: rgba(74, 140, 63, 0.18);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--black);
+  color: var(--off-white);
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  padding: 1.1rem 3rem;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(13,13,13,0.82);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(74,140,63,0.12);
+  transition: padding 0.3s;
+}
+.nav-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+.logo-mark {
+  width: 34px; height: 34px; background: var(--green-bright);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden; flex-shrink: 0;
+}
+.logo-mark::before {
+  content: ''; position: absolute; bottom: 5px; left: 50%;
+  transform: translateX(-50%); width: 16px; height: 12px;
+  border-left: 2px solid white; border-right: 2px solid white;
+  border-top: 2px solid white; border-radius: 3px 3px 0 0;
+}
+.logo-mark::after {
+  content: ''; position: absolute; bottom: 5px; left: 50%;
+  transform: translateX(-50%); width: 2px; height: 12px; background: white;
+}
+.logo-text { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--off-white); }
+.logo-text span { color: var(--green-light); }
+
+.nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+.nav-links a { color: rgba(245,245,240,0.68); text-decoration: none; font-size: 0.82rem; font-weight: 400; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--green-light); }
+.nav-cta { background: var(--green-bright) !important; color: white !important; padding: 0.55rem 1.3rem; border-radius: 100px; font-weight: 500 !important; transition: background 0.2s !important; }
+.nav-cta:hover { background: var(--green-mid) !important; color: white !important; }
+
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--off-white); border-radius: 2px; transition: all 0.3s; }
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(10,15,9,0.97); z-index: 190; padding: 7rem 2rem 3rem;
+  flex-direction: column; align-items: center; gap: 2rem;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a { font-size: 1.4rem; font-family: 'Playfair Display', serif; color: var(--off-white); text-decoration: none; letter-spacing: 0.02em; }
+.mobile-menu a:hover { color: var(--green-light); }
+.mobile-menu .mob-cta { background: var(--green-bright); color: white !important; padding: 0.9rem 2.5rem; border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 600; }
+
+/* ── PAGES ── */
+.page { display: none; min-height: 100vh; }
+.page.active { display: block; }
+
+/* ── HERO ── */
+.hero {
+  position: relative; height: 100vh; min-height: 640px;
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+}
+.hero-bg { position: absolute; inset: -20px; background: var(--black); }
+.aurora-layer { position: absolute; inset: -40px; }
+.orb1 { position: absolute; width: 70vw; height: 70vw; top: -20%; left: -20%; border-radius: 50%; background: radial-gradient(circle at 40% 40%, rgba(74,140,63,0.45) 0%, rgba(29,74,25,0.2) 40%, transparent 70%); animation: float1 18s ease-in-out infinite; filter: blur(60px); }
+.orb2 { position: absolute; width: 55vw; height: 55vw; bottom: -15%; right: -10%; border-radius: 50%; background: radial-gradient(circle at 60% 60%, rgba(45,90,39,0.4) 0%, rgba(107,191,95,0.15) 45%, transparent 70%); animation: float2 22s ease-in-out infinite; filter: blur(80px); }
+.orb3 { position: absolute; width: 40vw; height: 40vw; top: 20%; right: 15%; border-radius: 50%; background: radial-gradient(circle at 50% 50%, rgba(107,191,95,0.2) 0%, transparent 65%); animation: float3 15s ease-in-out infinite; filter: blur(50px); }
+.hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(74,140,63,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(74,140,63,0.06) 1px, transparent 1px); background-size: 80px 80px; }
+.hero-vignette { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 40%, transparent 40%, rgba(13,13,13,0.7) 100%); }
+.hero-content { position: relative; z-index: 10; text-align: center; padding: 2rem; max-width: 860px; animation: hero-enter 1.2s cubic-bezier(0.22,1,0.36,1) both; animation-delay: 0.2s; opacity: 0; }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(74,140,63,0.15); border: 1px solid rgba(107,191,95,0.3); border-radius: 100px; padding: 0.4rem 1rem; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green-light); margin-bottom: 1.5rem; }
+.eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green-light); animation: pulse 2s ease-in-out infinite; }
+.hero-headline { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 7vw, 5.5rem); font-weight: 900; line-height: 1.05; letter-spacing: -0.02em; color: var(--off-white); margin-bottom: 1.5rem; }
+.hero-headline .accent { color: var(--green-light); font-style: italic; }
+.hero-sub { font-size: clamp(1rem, 2vw, 1.15rem); font-weight: 300; color: rgba(245,245,240,0.62); line-height: 1.65; max-width: 540px; margin: 0 auto 2.5rem; }
+.hero-buttons { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+.hero-tagline { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); z-index: 10; display: flex; align-items: center; gap: 0.6rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 100px; padding: 0.55rem 1.4rem; font-size: 0.78rem; color: rgba(245,245,240,0.5); letter-spacing: 0.04em; white-space: nowrap; animation: hero-enter 1.2s cubic-bezier(0.22,1,0.36,1) both; animation-delay: 0.6s; opacity: 0; }
+.tagline-sep { color: var(--green-bright); }
+
+/* ── TRUST BAR ── */
+.trust-bar { background: var(--green-deep); border-top: 1px solid rgba(107,191,95,0.15); border-bottom: 1px solid rgba(107,191,95,0.15); padding: 1.1rem 2rem; display: flex; align-items: center; justify-content: center; gap: 2.5rem; flex-wrap: wrap; }
+.trust-item { display: flex; align-items: center; gap: 0.55rem; font-size: 0.82rem; color: rgba(200,232,195,0.8); }
+.trust-icon { width: 16px; height: 16px; color: var(--green-light); flex-shrink: 0; }
+.trust-divider { width: 1px; height: 20px; background: rgba(107,191,95,0.2); }
+
+/* ── BUTTONS ── */
+.btn-primary { background: var(--off-white); color: var(--black); padding: 0.8rem 1.9rem; border-radius: 100px; font-weight: 600; font-size: 0.9rem; text-decoration: none; border: none; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; }
+.btn-primary:hover { background: white; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(107,191,95,0.2); }
+.btn-primary.green { background: var(--green-bright); color: white; }
+.btn-primary.green:hover { background: var(--green-mid); box-shadow: 0 8px 30px rgba(74,140,63,0.35); }
+.btn-secondary { background: transparent; color: var(--off-white); padding: 0.8rem 1.9rem; border-radius: 100px; font-weight: 500; font-size: 0.9rem; text-decoration: none; border: 1px solid rgba(245,245,240,0.25); cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; }
+.btn-secondary:hover { border-color: var(--green-light); color: var(--green-light); transform: translateY(-2px); }
+
+/* ── SECTION COMMON ── */
+section { padding: 5.5rem 2.5rem; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-label { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green-light); margin-bottom: 0.9rem; }
+.section-label::before { content: ''; display: inline-block; width: 22px; height: 1px; background: var(--green-light); }
+.section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 4vw, 2.9rem); font-weight: 700; line-height: 1.15; color: var(--off-white); margin-bottom: 1rem; }
+.section-subtitle { font-size: 1rem; font-weight: 300; color: var(--text-muted); line-height: 1.7; max-width: 560px; }
+
+/* ── HOME: SERVICES ── */
+.services-section { background: #111410; }
+.services-header { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: end; margin-bottom: 3rem; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: rgba(74,140,63,0.1); border: 1px solid rgba(74,140,63,0.12); border-radius: 16px; overflow: hidden; }
+.service-card { background: #0f130e; padding: 1.75rem 1.5rem; position: relative; overflow: hidden; transition: background 0.3s; cursor: pointer; }
+.service-card:hover { background: #141a12; }
+.service-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--green-bright); transform: scaleX(0); transition: transform 0.3s ease; transform-origin: left; }
+.service-card:hover::after { transform: scaleX(1); }
+.service-icon { width: 40px; height: 40px; margin-bottom: 1.1rem; color: var(--green-bright); }
+.service-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--off-white); margin-bottom: 0.5rem; }
+.service-desc { font-size: 0.84rem; color: rgba(245,245,240,0.44); line-height: 1.6; }
+.service-arrow { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.78rem; color: var(--green-light); margin-top: 1rem; font-weight: 500; opacity: 0; transition: opacity 0.2s; }
+.service-card:hover .service-arrow { opacity: 1; }
+
+/* ── HOME: PROCESS ── */
+.process-section { background: var(--black); position: relative; overflow: hidden; }
+.path-bg-accent { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 50% 100%, rgba(26,58,26,0.35) 0%, transparent 65%); pointer-events: none; }
+.path-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3rem; position: relative; }
+.path-steps::before { content: ''; position: absolute; top: 27px; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, var(--green-bright), var(--green-light), var(--green-bright), transparent); opacity: 0.3; }
+.step-card { text-align: center; }
+.step-num { width: 54px; height: 54px; border-radius: 50%; border: 1px solid rgba(107,191,95,0.3); background: rgba(74,140,63,0.1); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--green-light); margin: 0 auto 1.2rem; position: relative; z-index: 1; }
+.step-title { font-size: 0.95rem; font-weight: 600; color: var(--off-white); margin-bottom: 0.5rem; }
+.step-desc { font-size: 0.82rem; color: rgba(245,245,240,0.44); line-height: 1.65; }
+
+/* ── HOME: WHY ── */
+.why-section { background: #0a0f09; }
+.why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center; }
+.why-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+.why-card { background: #0f130e; border: 1px solid rgba(74,140,63,0.12); border-radius: 12px; padding: 1.4rem; transition: border-color 0.3s, transform 0.3s; }
+.why-card:hover { border-color: rgba(107,191,95,0.3); transform: translateY(-3px); }
+.why-card-icon { font-size: 1.4rem; margin-bottom: 0.65rem; display: block; }
+.why-card-title { font-weight: 600; font-size: 0.9rem; color: var(--off-white); margin-bottom: 0.35rem; }
+.why-card-text { font-size: 0.8rem; color: rgba(245,245,240,0.44); line-height: 1.6; }
+.why-image-frame { border-radius: 16px; overflow: hidden; aspect-ratio: 4/5; position: relative; background: var(--green-deep); }
+.why-image-frame img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; mix-blend-mode: luminosity; }
+.why-image-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,58,26,0.8) 0%, transparent 50%); }
+.why-stat-badge { position: absolute; bottom: 1.5rem; left: 1.5rem; background: rgba(13,13,13,0.85); backdrop-filter: blur(12px); border: 1px solid rgba(107,191,95,0.25); border-radius: 10px; padding: 0.75rem 1rem; }
+.stat-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--green-light); line-height: 1; }
+.stat-label { font-size: 0.72rem; color: rgba(245,245,240,0.55); margin-top: 0.2rem; }
+
+/* ── HOME: TESTIMONIALS ── */
+.testimonials-section { background: #111410; }
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+.testimonial-card { background: #0f130e; border: 1px solid rgba(74,140,63,0.12); border-radius: 12px; padding: 1.6rem; }
+.stars { color: var(--green-light); font-size: 0.82rem; margin-bottom: 0.7rem; letter-spacing: 0.1em; }
+.testimonial-text { font-size: 0.875rem; color: rgba(245,245,240,0.68); line-height: 1.75; font-style: italic; margin-bottom: 1.2rem; }
+.testimonial-author { display: flex; align-items: center; gap: 0.7rem; }
+.author-avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--green-mid); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 600; color: var(--green-pale); flex-shrink: 0; }
+.author-name { font-size: 0.84rem; font-weight: 500; color: var(--off-white); }
+.author-location { font-size: 0.72rem; color: rgba(245,245,240,0.4); }
+
+/* ── CTA SECTION ── */
+.cta-section { background: var(--green-deep); position: relative; overflow: hidden; text-align: center; }
+.cta-bg-lines { position: absolute; inset: 0; background-image: repeating-linear-gradient(-45deg, rgba(107,191,95,0.04) 0px, rgba(107,191,95,0.04) 1px, transparent 1px, transparent 60px); }
+.cta-buttons { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+/* ── SERVICES PAGE ── */
+.page-hero { padding: 9rem 2.5rem 5rem; background: #0a0f09; position: relative; overflow: hidden; }
+.page-hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 60% 50%, rgba(74,140,63,0.18) 0%, transparent 65%); }
+.page-hero .section-inner { position: relative; z-index: 1; }
+.page-hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(74,140,63,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(74,140,63,0.04) 1px, transparent 1px); background-size: 60px 60px; }
+.page-title-large { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 900; line-height: 1.05; color: var(--off-white); max-width: 700px; }
+.page-title-large .accent { color: var(--green-light); font-style: italic; }
+.page-intro { font-size: 1.05rem; color: rgba(245,245,240,0.6); max-width: 520px; margin-top: 1.2rem; line-height: 1.7; font-weight: 300; }
+
+.services-full { background: #0d110c; padding: 5rem 2.5rem; }
+.services-full-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5px; background: rgba(74,140,63,0.08); border: 1px solid rgba(74,140,63,0.12); border-radius: 16px; overflow: hidden; margin-top: 3rem; }
+.service-full-card { background: #0f130e; padding: 2.5rem 2rem; transition: background 0.3s; }
+.service-full-card:hover { background: #141a12; }
+.service-full-card .service-icon { width: 46px; height: 46px; }
+.service-full-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--off-white); margin-bottom: 0.6rem; }
+.service-full-desc { font-size: 0.9rem; color: rgba(245,245,240,0.5); line-height: 1.7; margin-bottom: 1.2rem; }
+.service-features { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+.service-features li { font-size: 0.82rem; color: rgba(245,245,240,0.45); display: flex; align-items: center; gap: 0.5rem; }
+.service-features li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--green-light); flex-shrink: 0; }
+
+/* ── PORTFOLIO PAGE ── */
+.portfolio-section { background: #0d110c; padding: 5rem 2.5rem; }
+.portfolio-filter { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+.filter-btn { background: transparent; border: 1px solid rgba(74,140,63,0.25); color: rgba(245,245,240,0.5); padding: 0.5rem 1.1rem; border-radius: 100px; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
+.filter-btn:hover, .filter-btn.active { background: var(--green-bright); border-color: var(--green-bright); color: white; }
+.portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.portfolio-item { border-radius: 12px; overflow: hidden; background: #0f130e; border: 1px solid rgba(74,140,63,0.12); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; }
+.portfolio-item:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+.portfolio-img { aspect-ratio: 4/3; background: var(--green-deep); position: relative; overflow: hidden; }
+.portfolio-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; mix-blend-mode: luminosity; transition: opacity 0.3s, transform 0.4s; }
+.portfolio-item:hover .portfolio-img img { opacity: 1; transform: scale(1.05); mix-blend-mode: normal; }
+.portfolio-img-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,13,13,0.7) 0%, transparent 50%); }
+.portfolio-tag { position: absolute; top: 0.75rem; left: 0.75rem; background: rgba(74,140,63,0.75); backdrop-filter: blur(8px); border-radius: 100px; padding: 0.3rem 0.7rem; font-size: 0.7rem; font-weight: 500; color: var(--green-pale); letter-spacing: 0.06em; text-transform: uppercase; }
+.portfolio-info { padding: 1.25rem 1.25rem; }
+.portfolio-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--off-white); margin-bottom: 0.3rem; }
+.portfolio-meta { font-size: 0.78rem; color: rgba(245,245,240,0.4); }
+
+/* ── ABOUT PAGE ── */
+.about-intro { background: #0a0f09; padding: 5rem 2.5rem; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 3rem; }
+.about-text h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--off-white); margin-bottom: 1rem; }
+.about-text p { font-size: 0.92rem; color: rgba(245,245,240,0.6); line-height: 1.8; margin-bottom: 1.2rem; font-weight: 300; }
+.about-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.about-stat { text-align: center; background: #0f130e; border: 1px solid rgba(74,140,63,0.12); border-radius: 12px; padding: 1.75rem 1rem; }
+.about-stat-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: var(--green-light); line-height: 1; }
+.about-stat-label { font-size: 0.78rem; color: rgba(245,245,240,0.45); margin-top: 0.4rem; line-height: 1.4; }
+.about-image-frame { border-radius: 16px; overflow: hidden; aspect-ratio: 1; position: relative; background: var(--green-deep); }
+.about-image-frame img { width: 100%; height: 100%; object-fit: cover; opacity: 0.82; mix-blend-mode: luminosity; }
+.about-image-frame .why-image-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,58,26,0.7) 0%, transparent 55%); }
+
+.values-section { background: #111410; padding: 5rem 2.5rem; }
+.values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.value-card { background: #0f130e; border: 1px solid rgba(74,140,63,0.12); border-radius: 12px; padding: 2rem 1.5rem; text-align: center; transition: border-color 0.3s, transform 0.3s; }
+.value-card:hover { border-color: rgba(107,191,95,0.3); transform: translateY(-4px); }
+.value-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+.value-title { font-weight: 600; font-size: 0.95rem; color: var(--off-white); margin-bottom: 0.5rem; }
+.value-text { font-size: 0.82rem; color: rgba(245,245,240,0.44); line-height: 1.65; }
+
+/* ── CONTACT PAGE ── */
+.contact-section { background: #0a0f09; padding: 5rem 2.5rem; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start; margin-top: 3rem; }
+.contact-info h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--off-white); margin-bottom: 0.8rem; }
+.contact-info p { font-size: 0.9rem; color: rgba(245,245,240,0.55); line-height: 1.75; font-weight: 300; margin-bottom: 2rem; }
+.contact-details { display: flex; flex-direction: column; gap: 1.25rem; }
+.contact-detail { display: flex; align-items: flex-start; gap: 1rem; }
+.contact-detail-icon { width: 40px; height: 40px; background: rgba(74,140,63,0.12); border: 1px solid rgba(74,140,63,0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.contact-detail-icon svg { width: 18px; height: 18px; color: var(--green-light); }
+.contact-detail-label { font-size: 0.72rem; color: rgba(245,245,240,0.4); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.2rem; }
+.contact-detail-value { font-size: 0.92rem; color: var(--off-white); font-weight: 500; }
+
+/* FORM */
+.contact-form-wrap { background: #0f130e; border: 1px solid rgba(74,140,63,0.14); border-radius: 16px; padding: 2.5rem; }
+.form-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--off-white); margin-bottom: 0.4rem; }
+.form-subtitle { font-size: 0.85rem; color: rgba(245,245,240,0.4); margin-bottom: 2rem; line-height: 1.6; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 1.1rem; }
+.form-label { font-size: 0.76rem; font-weight: 500; color: rgba(245,245,240,0.55); text-transform: uppercase; letter-spacing: 0.08em; }
+.form-input, .form-select, .form-textarea {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(74,140,63,0.2);
+  border-radius: 10px; padding: 0.75rem 1rem; font-size: 0.9rem;
+  color: var(--off-white); font-family: 'DM Sans', sans-serif; width: 100%;
+  outline: none; transition: border-color 0.2s, background 0.2s;
+  appearance: none;
+}
+.form-input::placeholder, .form-textarea::placeholder { color: rgba(245,245,240,0.2); }
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--green-bright); background: rgba(74,140,63,0.07); }
+.form-select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%236bbf5f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; }
+.form-select option { background: #111; color: var(--off-white); }
+.form-textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+.form-check { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1.5rem; }
+.form-check input[type="checkbox"] { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--green-bright); flex-shrink: 0; cursor: pointer; }
+.form-check label { font-size: 0.82rem; color: rgba(245,245,240,0.45); line-height: 1.55; cursor: pointer; }
+.form-submit { width: 100%; }
+.form-success { display: none; text-align: center; padding: 2rem; }
+.form-success-icon { font-size: 3rem; margin-bottom: 1rem; display: block; }
+.form-success h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--off-white); margin-bottom: 0.5rem; }
+.form-success p { font-size: 0.9rem; color: rgba(245,245,240,0.5); line-height: 1.65; }
+
+/* ── FOOTER ── */
+footer { background: var(--black); border-top: 1px solid rgba(74,140,63,0.12); padding: 3rem 2.5rem 2rem; }
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem; }
+.footer-brand-col .footer-brand { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--off-white); font-size: 1.2rem; margin-bottom: 0.7rem; }
+.footer-brand span { color: var(--green-light); }
+.footer-brand-desc { font-size: 0.82rem; color: rgba(245,245,240,0.35); line-height: 1.65; max-width: 240px; }
+.footer-col-title { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(245,245,240,0.35); margin-bottom: 1rem; }
+.footer-col-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+.footer-col-links a { font-size: 0.84rem; color: rgba(245,245,240,0.45); text-decoration: none; transition: color 0.2s; cursor: pointer; }
+.footer-col-links a:hover { color: var(--green-light); }
+.footer-bottom { border-top: 1px solid rgba(74,140,63,0.1); padding-top: 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
+.footer-copy { font-size: 0.76rem; color: rgba(245,245,240,0.22); }
+.footer-license { font-size: 0.76rem; color: rgba(245,245,240,0.22); }
+
+/* ── ANIMATIONS ── */
+@keyframes float1 { 0%, 100% { transform: translate(0,0) scale(1); } 33% { transform: translate(3%,4%) scale(1.04); } 66% { transform: translate(-2%,2%) scale(0.97); } }
+@keyframes float2 { 0%, 100% { transform: translate(0,0) scale(1); } 40% { transform: translate(-4%,-3%) scale(1.06); } 70% { transform: translate(2%,-1%) scale(0.96); } }
+@keyframes float3 { 0%, 100% { transform: translate(0,0); } 50% { transform: translate(-3%,5%); } }
+@keyframes hero-enter { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { gap: 1.5rem; }
+  .why-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+  .values-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.25rem; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  section { padding: 4rem 1.25rem; }
+  .page-hero { padding: 7rem 1.25rem 3.5rem; }
+  .hero-tagline { display: none; }
+  .trust-bar { gap: 1.25rem; padding: 1rem 1.25rem; }
+  .trust-divider { display: none; }
+  .services-header { grid-template-columns: 1fr; }
+  .services-header .section-subtitle { text-align: left !important; }
+  .services-grid { grid-template-columns: 1fr; }
+  .services-full-grid { grid-template-columns: 1fr; }
+  .path-steps { grid-template-columns: repeat(2, 1fr); }
+  .path-steps::before { display: none; }
+  .why-cards { grid-template-columns: 1fr 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+  .values-grid { grid-template-columns: 1fr 1fr; }
+  .about-stats { grid-template-columns: repeat(3, 1fr); }
+  .contact-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .hero-headline { font-size: 2.4rem; }
+  .hero-buttons { flex-direction: column; align-items: stretch; text-align: center; }
+  .hero-buttons a { justify-content: center; }
+  .path-steps { grid-template-columns: 1fr; }
+  .why-cards { grid-template-columns: 1fr; }
+  .portfolio-grid { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: 1fr; }
+  .about-stats { grid-template-columns: 1fr; }
+  .trust-item span.trust-text { display: none; }
+  .cta-buttons { flex-direction: column; align-items: stretch; }
+  .cta-buttons a { justify-content: center; }
+  .footer-top { grid-template-columns: 1fr; }
+  .contact-form-wrap { padding: 1.5rem 1.25rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a class="nav-logo" onclick="showPage('home')" style="cursor:pointer;">
+    <div class="logo-mark"></div>
+    <span class="logo-text">True Patio <span>LLC</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a onclick="showPage('home')" data-page="home">Home</a></li>
+    <li><a onclick="showPage('services')" data-page="services">Services</a></li>
+    <li><a onclick="showPage('portfolio')" data-page="portfolio">Our Work</a></li>
+    <li><a onclick="showPage('about')" data-page="about">About</a></li>
+    <li><a onclick="showPage('contact')" data-page="contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a onclick="showPage('home');closeMobile()">Home</a>
+  <a onclick="showPage('services');closeMobile()">Services</a>
+  <a onclick="showPage('portfolio');closeMobile()">Our Work</a>
+  <a onclick="showPage('about');closeMobile()">About</a>
+  <a onclick="showPage('contact');closeMobile()" class="mob-cta">Get a Free Quote</a>
+</div>
+
+<!-- ═══════════════════════════════ PAGE: HOME ═══════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="aurora-layer">
+        <div class="orb1"></div><div class="orb2"></div><div class="orb3"></div>
+      </div>
+      <div class="hero-grid"></div>
+      <div class="hero-vignette"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <div class="eyebrow-dot"></div>
+        New Jersey's Outdoor Living Specialists
+      </div>
+      <h1 class="hero-headline">We build the path<br><span class="accent">you've been imagining.</span></h1>
+      <p class="hero-sub">From the first sketch to the final stone, True Patio LLC transforms your outdoor space into something you're proud to come home to.</p>
+      <div class="hero-buttons">
+        <a onclick="showPage('contact')" class="btn-primary" style="cursor:pointer;">Get a Free Quote <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a onclick="showPage('portfolio')" class="btn-secondary" style="cursor:pointer;">View Our Work</a>
+      </div>
+    </div>
+    <div class="hero-tagline">
+      Patios <span class="tagline-sep">·</span> Pavers <span class="tagline-sep">·</span> Walkways <span class="tagline-sep">·</span> Retaining Walls <span class="tagline-sep">·</span> Landscaping
+    </div>
+  </section>
+
+  <div class="trust-bar">
+    <div class="trust-item"><svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span class="trust-text"> Licensed & Insured</span></div>
+    <div class="trust-divider"></div>
+    <div class="trust-item"><svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span class="trust-text"> 100% Satisfaction Guarantee</span></div>
+    <div class="trust-divider"></div>
+    <div class="trust-item"><svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span class="trust-text"> Free Estimates Within 48 Hours</span></div>
+    <div class="trust-divider"></div>
+    <div class="trust-item"><svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span class="trust-text"> 500+ Happy Homeowners</span></div>
+  </div>
+
+  <!-- SERVICES PREVIEW -->
+  <section class="services-section">
+    <div class="section-inner">
+      <div class="services-header">
+        <div>
+          <div class="section-label">What We Do</div>
+          <h2 class="section-title">Every path starts with the right foundation.</h2>
+        </div>
+        <p class="section-subtitle" style="text-align:right;">We specialize in turning bare backyards into beautiful, functional outdoor spaces — built to last and built for you.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card" onclick="showPage('services')">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+          <div class="service-name">Patio Design & Build</div>
+          <p class="service-desc">Custom paver, flagstone, and concrete patios designed around how you actually live outdoors.</p>
+          <div class="service-arrow">Explore →</div>
+        </div>
+        <div class="service-card" onclick="showPage('services')">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l4-8 4 4 4-6 4 10"/><path d="M3 21h18"/></svg>
+          <div class="service-name">Walkways & Paths</div>
+          <p class="service-desc">Elegant paver walkways and natural stone paths that guide guests and define your property.</p>
+          <div class="service-arrow">Explore →</div>
+        </div>
+        <div class="service-card" onclick="showPage('services')">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="14" width="20" height="7" rx="1"/><path d="M2 14l4-7h12l4 7"/><path d="M6 14v7M18 14v7"/></svg>
+          <div class="service-name">Retaining Walls</div>
+          <p class="service-desc">Structurally sound and visually sharp walls that shape your landscape and prevent erosion.</p>
+          <div class="service-arrow">Explore →</div>
+        </div>
+        <div class="service-card" onclick="showPage('services')">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          <div class="service-name">Outdoor Living Areas</div>
+          <p class="service-desc">Fire pits, seating walls, pergolas, and full outdoor rooms made for real life.</p>
+          <div class="service-arrow">Explore →</div>
+        </div>
+        <div class="service-card" onclick="showPage('services')">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12m0 0C12 7 7 5 3 7"/><path d="M12 12c0-5 5-7 9-5"/><path d="M12 17c-3-1-7-1-9 2"/><path d="M12 17c3-1 7-1 9 2"/></svg>
+          <div class="service-name">Landscaping & Planting</div>
+          <p class="service-desc">Strategic planting plans, grading, and lawn restoration that frame your hardscape beautifully.</p>
+          <div class="service-arrow">Explore →</div>
+        </div>
+        <div class="service-card" onclick="showPage('services')">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          <div class="service-name">Full Property Packages</div>
+          <p class="service-desc">Complete front-to-back transformations — one crew, one timeline, one vision executed flawlessly.</p>
+          <div class="service-arrow">Explore →</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process-section">
+    <div class="path-bg-accent"></div>
+    <div class="section-inner" style="position:relative;z-index:1;">
+      <div style="text-align:center;max-width:600px;margin:0 auto;">
+        <div class="section-label" style="justify-content:center;">How It Works</div>
+        <h2 class="section-title">Your path to the perfect outdoor space.</h2>
+        <p class="section-subtitle" style="margin:0 auto;text-align:center;">Simple, transparent, and stress-free from call to completion.</p>
+      </div>
+      <div class="path-steps">
+        <div class="step-card"><div class="step-num">01</div><div class="step-title">Free Consultation</div><p class="step-desc">Call or submit online. We respond within 48 hours and schedule a site visit at your convenience.</p></div>
+        <div class="step-card"><div class="step-num">02</div><div class="step-title">Custom Design & Quote</div><p class="step-desc">We walk the property, listen to your vision, and deliver a detailed written estimate — no surprises.</p></div>
+        <div class="step-card"><div class="step-num">03</div><div class="step-title">Expert Build</div><p class="step-desc">Our crew arrives on time, works clean, and keeps you updated every step of the way.</p></div>
+        <div class="step-card"><div class="step-num">04</div><div class="step-title">Walk-Through & Sign Off</div><p class="step-desc">We don't call it done until you're fully satisfied. Final walk-through, cleanup, and care instructions included.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="why-section">
+    <div class="section-inner">
+      <div class="why-grid">
+        <div>
+          <div class="section-label">Why True Patio</div>
+          <h2 class="section-title">Real craftsmanship. Honest pricing. Every time.</h2>
+          <p class="section-subtitle" style="margin-bottom:0;">We built this company on word of mouth — which means every job is a reference job. Your backyard is our reputation.</p>
+          <div class="why-cards">
+            <div class="why-card"><span class="why-card-icon">🏆</span><div class="why-card-title">Quality Materials</div><p class="why-card-text">Premium pavers and stone from trusted suppliers — products that age beautifully.</p></div>
+            <div class="why-card"><span class="why-card-icon">📋</span><div class="why-card-title">Transparent Quotes</div><p class="why-card-text">Line-by-line estimates with no hidden fees. You know exactly what you're paying for.</p></div>
+            <div class="why-card"><span class="why-card-icon">⏱️</span><div class="why-card-title">On-Time Completion</div><p class="why-card-text">We respect your schedule. Projects finish when promised — or we make it right.</p></div>
+            <div class="why-card"><span class="why-card-icon">🤝</span><div class="why-card-title">Local & Trusted</div><p class="why-card-text">New Jersey based, community driven. We live here too — and it shows in our work.</p></div>
+          </div>
+        </div>
+        <div>
+          <div class="why-image-frame">
+            <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.75rem;background:linear-gradient(145deg,#0f1a0e,#162b15);position:absolute;inset:0;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(107,191,95,0.35)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span style="font-size:0.65rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(107,191,95,0.3);font-family:DM Sans,sans-serif;">Placeholder</span></div>
+            <div class="why-image-overlay"></div>
+            <div class="why-stat-badge">
+              <div class="stat-num">500+</div>
+              <div class="stat-label">Projects completed across NJ</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section">
+    <div class="section-inner">
+      <div style="text-align:center;margin-bottom:0.5rem;">
+        <div class="section-label" style="justify-content:center;">What Clients Say</div>
+        <h2 class="section-title" style="text-align:center;">They trusted us to build their path.</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"True Patio completely transformed our backyard. The paver patio they built is absolutely stunning — exactly what we envisioned. Process was smooth and the crew was spotless."</p><div class="testimonial-author"><div class="author-avatar">MR</div><div><div class="author-name">Maria R.</div><div class="author-location">Clifton, NJ</div></div></div></div>
+        <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"Got three quotes. True Patio was the most detailed and honest estimate by far. They delivered on every promise and the retaining wall looks incredible. Booking them again for the front."</p><div class="testimonial-author"><div class="author-avatar">DJ</div><div><div class="author-name">David J.</div><div class="author-location">Montclair, NJ</div></div></div></div>
+        <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"From the first call to final walkthrough — total professionals. My walkway and garden borders look like something out of a magazine. Worth every penny. Highly recommend."</p><div class="testimonial-author"><div class="author-avatar">SL</div><div><div class="author-name">Sandra L.</div><div class="author-location">Wayne, NJ</div></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-bg-lines"></div>
+    <div class="section-inner" style="position:relative;z-index:1;">
+      <div class="section-label" style="justify-content:center;color:var(--green-pale);">Ready to Start?</div>
+      <h2 class="section-title" style="text-align:center;color:var(--off-white);font-size:clamp(2rem,5vw,3.2rem);">Your path begins with one conversation.</h2>
+      <p class="section-subtitle" style="margin:0 auto 2.5rem;text-align:center;color:rgba(200,232,195,0.65);">Free estimates. No pressure. Just honest advice on making your outdoor space exactly what you've been imagining.</p>
+      <div class="cta-buttons">
+        <a onclick="showPage('contact')" class="btn-primary" style="cursor:pointer;">Get a Free Quote <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a onclick="showPage('portfolio')" class="btn-secondary" style="cursor:pointer;border-color:rgba(200,232,195,0.3);color:var(--green-pale);">View Our Projects</a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-home -->
+
+
+<!-- ═══════════════════════════════ PAGE: SERVICES ═══════════════════════════════ -->
+<div class="page" id="page-services">
+
+  <div class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-grid"></div>
+    <div class="section-inner">
+      <div class="section-label">What We Build</div>
+      <h1 class="page-title-large">Outdoor spaces built<br><span class="accent">to last a lifetime.</span></h1>
+      <p class="page-intro">From a simple walkway to a full backyard transformation — we bring the same level of craft and care to every single project.</p>
+    </div>
+  </div>
+
+  <section class="services-full">
+    <div class="section-inner">
+      <div class="section-label">All Services</div>
+      <h2 class="section-title">Everything your property deserves.</h2>
+      <div class="services-full-grid">
+
+        <div class="service-full-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:46px;height:46px;color:var(--green-bright);margin-bottom:1.2rem;"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+          <div class="service-full-title">Patio Design & Build</div>
+          <p class="service-full-desc">Your patio is the heart of your outdoor space. We design and build custom patios using premium pavers, natural flagstone, travertine, and concrete — each layout tailored to your home, your style, and how you want to live outside.</p>
+          <ul class="service-features">
+            <li>Concrete & paver patios</li><li>Natural flagstone & travertine</li><li>Permeable paving options</li><li>Custom borders & inlays</li>
+          </ul>
+        </div>
+
+        <div class="service-full-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:46px;height:46px;color:var(--green-bright);margin-bottom:1.2rem;"><path d="M3 17l4-8 4 4 4-6 4 10"/><path d="M3 21h18"/></svg>
+          <div class="service-full-title">Walkways & Paths</div>
+          <p class="service-full-desc">First impressions start at the curb. Our walkways and garden paths are designed to guide, connect, and impress — using materials that hold up to NJ's four seasons while looking better every year.</p>
+          <ul class="service-features">
+            <li>Front entry walkways</li><li>Garden & backyard paths</li><li>Stepping stone installations</li><li>Edging & borders</li>
+          </ul>
+        </div>
+
+        <div class="service-full-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:46px;height:46px;color:var(--green-bright);margin-bottom:1.2rem;"><rect x="2" y="14" width="20" height="7" rx="1"/><path d="M2 14l4-7h12l4 7"/><path d="M6 14v7M18 14v7"/></svg>
+          <div class="service-full-title">Retaining Walls</div>
+          <p class="service-full-desc">Function and form in every stone. Our retaining walls are engineered for structural integrity and built to enhance the visual flow of your landscape — whether you need to manage a grade or create a terraced garden feature.</p>
+          <ul class="service-features">
+            <li>Block & natural stone walls</li><li>Tiered & terraced designs</li><li>Erosion control solutions</li><li>Seating wall integration</li>
+          </ul>
+        </div>
+
+        <div class="service-full-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:46px;height:46px;color:var(--green-bright);margin-bottom:1.2rem;"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          <div class="service-full-title">Outdoor Living Areas</div>
+          <p class="service-full-desc">Your backyard should do more than exist. We build complete outdoor rooms — fire pits, seating walls, pergola bases, outdoor kitchen prep areas — designed to extend your living space into the open air.</p>
+          <ul class="service-features">
+            <li>Fire pit circles & features</li><li>Built-in seating walls</li><li>Pergola & gazebo bases</li><li>Outdoor kitchen pads</li>
+          </ul>
+        </div>
+
+        <div class="service-full-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:46px;height:46px;color:var(--green-bright);margin-bottom:1.2rem;"><path d="M12 22V12m0 0C12 7 7 5 3 7"/><path d="M12 12c0-5 5-7 9-5"/><path d="M12 17c-3-1-7-1-9 2"/><path d="M12 17c3-1 7-1 9 2"/></svg>
+          <div class="service-full-title">Landscaping & Planting</div>
+          <p class="service-full-desc">Great hardscape needs great softscape to match. We provide grading, mulching, planting, and lawn restoration to ensure your new outdoor space is framed the way it deserves to be.</p>
+          <ul class="service-features">
+            <li>Planting bed design</li><li>Grading & drainage</li><li>Lawn seeding & restoration</li><li>Mulch & ground cover</li>
+          </ul>
+        </div>
+
+        <div class="service-full-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:46px;height:46px;color:var(--green-bright);margin-bottom:1.2rem;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          <div class="service-full-title">Full Property Packages</div>
+          <p class="service-full-desc">When you want to transform the whole picture — front yard, backyard, and everything in between — we handle it all under one roof. One crew, one timeline, one unified design vision executed start to finish.</p>
+          <ul class="service-features">
+            <li>Full front-to-back design</li><li>Coordinated scheduling</li><li>Single point of contact</li><li>Discounted package pricing</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-bg-lines"></div>
+    <div class="section-inner" style="position:relative;z-index:1;">
+      <h2 class="section-title" style="text-align:center;color:var(--off-white);">Not sure where to start?</h2>
+      <p class="section-subtitle" style="margin:0 auto 2.5rem;text-align:center;color:rgba(200,232,195,0.65);">We'll walk your property and help you figure out exactly what it needs. No obligation, no pressure — just a free expert assessment.</p>
+      <div class="cta-buttons">
+        <a onclick="showPage('contact')" class="btn-primary" style="cursor:pointer;">Schedule a Free Consultation</a>
+        <a onclick="showPage('portfolio')" class="btn-secondary" style="cursor:pointer;border-color:rgba(200,232,195,0.3);color:var(--green-pale);">See Our Work First</a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-services -->
+
+
+<!-- ═══════════════════════════════ PAGE: PORTFOLIO ═══════════════════════════════ -->
+<div class="page" id="page-portfolio">
+
+  <div class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-grid"></div>
+    <div class="section-inner">
+      <div class="section-label">Our Portfolio</div>
+      <h1 class="page-title-large">Every project,<br><span class="accent">a new story.</span></h1>
+      <p class="page-intro">Hundreds of homeowners across New Jersey have trusted us to bring their vision to life. Browse a selection of recent projects below.</p>
+    </div>
+  </div>
+
+  <section class="portfolio-section">
+    <div class="section-inner">
+      <div class="portfolio-filter">
+        <button class="filter-btn active" onclick="filterPortfolio('all',this)">All Projects</button>
+        <button class="filter-btn" onclick="filterPortfolio('patio',this)">Patios</button>
+        <button class="filter-btn" onclick="filterPortfolio('walkway',this)">Walkways</button>
+        <button class="filter-btn" onclick="filterPortfolio('wall',this)">Retaining Walls</button>
+        <button class="filter-btn" onclick="filterPortfolio('outdoor',this)">Outdoor Living</button>
+      </div>
+      <div class="portfolio-grid" id="portfolio-grid">
+
+        <div class="portfolio-item" data-cat="patio">
+          <div class="portfolio-img">
+            <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.75rem;background:linear-gradient(145deg,#0f1a0e,#162b15);position:absolute;inset:0;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(107,191,95,0.35)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span style="font-size:0.65rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(107,191,95,0.3);font-family:DM Sans,sans-serif;">Placeholder</span></div>
+            <div class="portfolio-img-overlay"></div>
+            <span class="portfolio-tag">Patio</span>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-title">Travertine Patio with Fire Pit</div>
+            <div class="portfolio-meta">Clifton, NJ · 2024</div>
+          </div>
+        </div>
+
+        <div class="portfolio-item" data-cat="walkway">
+          <div class="portfolio-img">
+            <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.75rem;background:linear-gradient(145deg,#0f1a0e,#162b15);position:absolute;inset:0;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(107,191,95,0.35)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span style="font-size:0.65rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(107,191,95,0.3);font-family:DM Sans,sans-serif;">Placeholder</span></div>
+            <div class="portfolio-img-overlay"></div>
+            <span class="portfolio-tag">Walkway</span>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-title">Bluestone Front Entry Path</div>
+            <div class="portfolio-meta">Montclair, NJ · 2024</div>
+          </div>
+        </div>
+
+        <div class="portfolio-item" data-cat="wall">
+          <div class="portfolio-img">
+            <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.75rem;background:linear-gradient(145deg,#0f1a0e,#162b15);position:absolute;inset:0;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(107,191,95,0.35)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span style="font-size:0.65rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(107,191,95,0.3);font-family:DM Sans,sans-serif;">Placeholder</span></div>
+            <div class="portfolio-img-overlay"></div>
+            <span class="portfolio-tag">Retaining Wall</span>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-title">Tiered Retaining Wall System</div>
+            <div class="portfolio-meta">Wayne, NJ · 2024</div>
+          </div>
+        </div>
+
+        <div class="portfolio-item" data-cat="outdoor">
+          <div class="portfolio-img">
+            <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.75rem;background:linear-gradient(145deg,#0f1a0e,#162b15);position:absolute;inset:0;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(107,191,95,0.35)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span style="font-size:0.65rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(107,191,95,0.3);font-family:DM Sans,sans-serif;">Placeholder</span></div>
+            <div class="portfolio-img-overlay"></div>
+            <span class="portfolio-tag">Outdoor Living</span>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-title">Full Outdoor Kitchen & Seating Area</div>
+            <div class="portfolio-meta">Ridgewood, NJ · 2024</div>
+          </div>
+        </div>
+
+        <div class="portfolio-item" data-cat="patio">
+          <div class="portfolio-img">
+            <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.75rem;background:linear-gradient(145deg,#0f1a0e,#162b15);position:absolute;inset:0;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(107,191,95,0.35)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span style="font-size:0.65rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(107,191,95,0.3);font-family:DM Sans,sans-serif;">Placeholder</span></div>
+            <div class="portfolio-img-overlay"></div>
+            <span class="portfolio-tag">Patio</span>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-title">Large Concrete Paver Patio</div>
+            <div class="portfolio-meta">Paramus, NJ · 2023</div>
+          </div>
+        </div>
+
+        <div class="portfolio-item" data-cat="walkway">
+          <div class="portfolio-img">
+            <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.75rem;background:linear-gradient(145deg,#0f1a0e,#162b15);position:absolute;inset:0;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(107,191,95,0.35)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span style="font-size:0.65rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(107,191,95,0.3);font-family:DM Sans,sans-serif;">Placeholder</span></div>
+            <div class="portfolio-img-overlay"></div>
+            <span class="portfolio-tag">Walkway</span>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-title">Natural Stone Garden Path</div>
+            <div class="portfolio-meta">Teaneck, NJ · 2023</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-bg-lines"></div>
+    <div class="section-inner" style="position:relative;z-index:1;">
+      <h2 class="section-title" style="text-align:center;color:var(--off-white);">Ready to add your project to this list?</h2>
+      <p class="section-subtitle" style="margin:0 auto 2.5rem;text-align:center;color:rgba(200,232,195,0.65);">Let's talk about what you're envisioning. Free estimate, fast response.</p>
+      <div class="cta-buttons">
+        <a onclick="showPage('contact')" class="btn-primary" style="cursor:pointer;">Get a Free Quote</a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-portfolio -->
+
+
+<!-- ═══════════════════════════════ PAGE: ABOUT ═══════════════════════════════ -->
+<div class="page" id="page-about">
+
+  <div class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-grid"></div>
+    <div class="section-inner">
+      <div class="section-label">Our Story</div>
+      <h1 class="page-title-large">Built on craft.<br><span class="accent">Driven by pride.</span></h1>
+      <p class="page-intro">True Patio LLC was founded right here in New Jersey by tradespeople who believe in doing things the right way — every time, for every client.</p>
+    </div>
+  </div>
+
+  <section class="about-intro">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-text">
+          <h3>Who We Are</h3>
+          <p>True Patio LLC is a New Jersey–based outdoor construction company specializing in patios, walkways, retaining walls, and complete backyard transformations. We started small — with a commitment to quality work and honest communication — and grew entirely through referrals and word of mouth.</p>
+          <p>Our team brings decades of combined experience in hardscape and landscape construction. We use only premium materials from trusted suppliers, and we take pride in being on time, transparent, and thorough from the first conversation to the final walkthrough.</p>
+          <p>Every job is a reference job. We treat your property with the same care we'd bring to our own homes. That standard is what makes us different — and what keeps our clients coming back.</p>
+          <a onclick="showPage('contact')" class="btn-primary green" style="cursor:pointer;margin-top:1rem;display:inline-flex;">Work With Us →</a>
+        </div>
+        <div>
+          <div class="about-image-frame">
+            <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.75rem;background:linear-gradient(145deg,#0f1a0e,#162b15);position:absolute;inset:0;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(107,191,95,0.35)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span style="font-size:0.65rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(107,191,95,0.3);font-family:DM Sans,sans-serif;">Placeholder</span></div>
+            <div class="why-image-overlay"></div>
+          </div>
+        </div>
+      </div>
+      <div class="about-stats">
+        <div class="about-stat"><div class="about-stat-num">500+</div><div class="about-stat-label">Projects completed across NJ</div></div>
+        <div class="about-stat"><div class="about-stat-num">12+</div><div class="about-stat-label">Years of hands-on experience</div></div>
+        <div class="about-stat"><div class="about-stat-num">98%</div><div class="about-stat-label">Client satisfaction rate</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="values-section">
+    <div class="section-inner">
+      <div style="text-align:center;max-width:560px;margin:0 auto;">
+        <div class="section-label" style="justify-content:center;">Our Values</div>
+        <h2 class="section-title">The standards we hold ourselves to.</h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card"><span class="value-icon">🏗️</span><div class="value-title">Craft First</div><p class="value-text">We don't cut corners. Every base layer, every joint, every edge is done the way it was meant to be done.</p></div>
+        <div class="value-card"><span class="value-icon">💬</span><div class="value-title">Honest Communication</div><p class="value-text">We tell you what your project actually needs — and what it costs. No upselling, no surprises on invoice day.</p></div>
+        <div class="value-card"><span class="value-icon">🌿</span><div class="value-title">Respect for Your Space</div><p class="value-text">We leave your property cleaner than we found it. Every day of the job, not just the last one.</p></div>
+        <div class="value-card"><span class="value-icon">📍</span><div class="value-title">Community Rooted</div><p class="value-text">We're New Jersey people working in New Jersey neighborhoods. That local pride shows up in everything we do.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS on About -->
+  <section class="testimonials-section">
+    <div class="section-inner">
+      <div style="text-align:center;margin-bottom:0.5rem;">
+        <div class="section-label" style="justify-content:center;">What Clients Say</div>
+        <h2 class="section-title" style="text-align:center;">Don't just take our word for it.</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"True Patio completely transformed our backyard. The paver patio they built is absolutely stunning — exactly what we envisioned. Process was smooth and the crew was spotless."</p><div class="testimonial-author"><div class="author-avatar">MR</div><div><div class="author-name">Maria R.</div><div class="author-location">Clifton, NJ</div></div></div></div>
+        <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"Got three quotes. True Patio was the most detailed and honest estimate by far. They delivered on every promise and the retaining wall looks incredible. Booking them again for the front."</p><div class="testimonial-author"><div class="author-avatar">DJ</div><div><div class="author-name">David J.</div><div class="author-location">Montclair, NJ</div></div></div></div>
+        <div class="testimonial-card"><div class="stars">★★★★★</div><p class="testimonial-text">"From the first call to final walkthrough — total professionals. My walkway and garden borders look like something out of a magazine. Worth every penny. Highly recommend."</p><div class="testimonial-author"><div class="author-avatar">SL</div><div><div class="author-name">Sandra L.</div><div class="author-location">Wayne, NJ</div></div></div></div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-about -->
+
+
+<!-- ═══════════════════════════════ PAGE: CONTACT ═══════════════════════════════ -->
+<div class="page" id="page-contact">
+
+  <div class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-grid"></div>
+    <div class="section-inner">
+      <div class="section-label">Get in Touch</div>
+      <h1 class="page-title-large">Let's talk about<br><span class="accent">your project.</span></h1>
+      <p class="page-intro">Fill out the form below or give us a call. We respond to all inquiries within 48 hours and offer free on-site estimates.</p>
+    </div>
+  </div>
+
+  <section class="contact-section">
+    <div class="section-inner">
+      <div class="contact-grid">
+
+        <!-- LEFT: Info -->
+        <div class="contact-info">
+          <h3>We'd love to hear from you.</h3>
+          <p>Whether you have a detailed plan or just a rough idea, we're here to help you figure out what your space needs and what it'll take to make it happen.</p>
+          <div class="contact-details">
+            <div class="contact-detail">
+              <div class="contact-detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.18 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.29 6.29l.14-.14a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17.56z"/></svg>
+              </div>
+              <div>
+                <div class="contact-detail-label">Phone</div>
+                <div class="contact-detail-value">(555) 000-0000</div>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <div class="contact-detail-label">Email</div>
+                <div class="contact-detail-value">info@truepatiollc.com</div>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <div class="contact-detail-label">Service Area</div>
+                <div class="contact-detail-value">Northern & Central New Jersey</div>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <div class="contact-detail-label">Office Hours</div>
+                <div class="contact-detail-value">Mon–Sat, 7am–7pm</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Form -->
+        <div class="contact-form-wrap">
+          <div id="form-content">
+            <div class="form-title">Request a Free Estimate</div>
+            <p class="form-subtitle">We'll review your request and reach out within 48 hours to schedule a free on-site consultation.</p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="f-first">First Name *</label>
+                <input class="form-input" type="text" id="f-first" placeholder="John" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="f-last">Last Name *</label>
+                <input class="form-input" type="text" id="f-last" placeholder="Smith" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="f-email">Email Address *</label>
+                <input class="form-input" type="email" id="f-email" placeholder="john@email.com" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="f-phone">Phone Number *</label>
+                <input class="form-input" type="tel" id="f-phone" placeholder="(555) 000-0000" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="f-city">City / Town *</label>
+              <input class="form-input" type="text" id="f-city" placeholder="e.g. Clifton, Wayne, Montclair..." required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="f-service">Service Interested In *</label>
+              <select class="form-select" id="f-service" required>
+                <option value="" disabled selected>Select a service...</option>
+                <option>Patio Design & Build</option>
+                <option>Walkways & Paths</option>
+                <option>Retaining Walls</option>
+                <option>Outdoor Living Area</option>
+                <option>Landscaping & Planting</option>
+                <option>Full Property Package</option>
+                <option>Not Sure Yet — Need Advice</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="f-budget">Approximate Budget</label>
+              <select class="form-select" id="f-budget">
+                <option value="" disabled selected>Select a range...</option>
+                <option>Under $5,000</option>
+                <option>$5,000 – $10,000</option>
+                <option>$10,000 – $20,000</option>
+                <option>$20,000 – $40,000</option>
+                <option>$40,000+</option>
+                <option>Not Sure</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="f-message">Tell Us About Your Project</label>
+              <textarea class="form-textarea" id="f-message" placeholder="Describe what you're envisioning — size, materials, timeline, or anything else that helps us understand your project..."></textarea>
+            </div>
+
+            <div class="form-check">
+              <input type="checkbox" id="f-consent" />
+              <label for="f-consent">I agree to be contacted by True Patio LLC regarding my inquiry. We respect your privacy and will never share your information.</label>
+            </div>
+
+            <button class="btn-primary green form-submit" onclick="submitForm()">
+              Submit Request &amp; Get My Free Estimate
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+
+          <div class="form-success" id="form-success">
+            <span class="form-success-icon">✅</span>
+            <h3>Request Sent!</h3>
+            <p>Thank you for reaching out. A member of the True Patio team will follow up with you within 48 hours to schedule your free on-site consultation.</p>
+            <br>
+            <p style="font-size:0.8rem;color:rgba(245,245,240,0.3);">In the meantime, feel free to browse our work.</p>
+            <br>
+            <a onclick="showPage('portfolio')" class="btn-primary green" style="cursor:pointer;display:inline-flex;">View Our Portfolio →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-contact -->
+
+
+<!-- SHARED FOOTER -->
+<footer id="main-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <div class="footer-brand">True Patio <span>LLC</span></div>
+        <p class="footer-brand-desc">New Jersey's outdoor living specialists. Licensed, insured, and built on word of mouth since day one.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Pages</div>
+        <ul class="footer-col-links">
+          <li><a onclick="showPage('home')">Home</a></li>
+          <li><a onclick="showPage('services')">Services</a></li>
+          <li><a onclick="showPage('portfolio')">Our Work</a></li>
+          <li><a onclick="showPage('about')">About</a></li>
+          <li><a onclick="showPage('contact')">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-col-links">
+          <li><a onclick="showPage('services')">Patio Design</a></li>
+          <li><a onclick="showPage('services')">Walkways</a></li>
+          <li><a onclick="showPage('services')">Retaining Walls</a></li>
+          <li><a onclick="showPage('services')">Outdoor Living</a></li>
+          <li><a onclick="showPage('services')">Full Packages</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-col-links">
+          <li><a>(555) 000-0000</a></li>
+          <li><a>info@truepatiollc.com</a></li>
+          <li><a>Northern NJ</a></li>
+          <li><a>Central NJ</a></li>
+          <li><a onclick="showPage('contact')">Free Estimate →</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 True Patio LLC · New Jersey · All rights reserved</div>
+      <div class="footer-license">Licensed & Insured · NJ Home Improvement Contractor</div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+// ── PAGE ROUTER ──
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const target = document.getElementById('page-' + name);
+  if (target) target.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // update nav active state
+  document.querySelectorAll('.nav-links [data-page]').forEach(a => {
+    a.classList.toggle('active', a.dataset.page === name);
+  });
+}
+
+// ── HAMBURGER ──
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+
+function closeMobile() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ── PORTFOLIO FILTER ──
+function filterPortfolio(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.portfolio-item').forEach(item => {
+    if (cat === 'all' || item.dataset.cat === cat) {
+      item.style.display = '';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+
+// ── CONTACT FORM ──
+async function submitForm() {
+  const first = document.getElementById('f-first').value.trim();
+  const last = document.getElementById('f-last').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  const city = document.getElementById('f-city').value.trim();
+  const service = document.getElementById('f-service').value;
+  const budget = document.getElementById('f-budget').value;
+  const message = document.getElementById('f-message').value.trim();
+  const consent = document.getElementById('f-consent').checked;
+
+  if (!first || !last || !email || !phone || !city || !service) {
+    ['f-first','f-last','f-email','f-phone','f-city','f-service'].forEach(id => {
+      const el = document.getElementById(id);
+      if (!el.value.trim()) {
+        el.style.borderColor = 'rgba(255,100,80,0.7)';
+        el.addEventListener('input', () => el.style.borderColor = '', { once: true });
+      }
+    });
+    return;
+  }
+  if (!consent) {
+    document.getElementById('f-consent').style.outline = '2px solid rgba(255,100,80,0.7)';
+    setTimeout(() => document.getElementById('f-consent').style.outline = '', 2000);
+    return;
+  }
+
+  const submitBtn = document.querySelector('.form-submit');
+  submitBtn.textContent = 'Sending...';
+  submitBtn.disabled = true;
+
+  try {
+    const response = await fetch('https://formspree.io/f/xeenvlaj', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        _subject: `New Quote Request — ${service} — ${city}, NJ`,
+        Name: `${first} ${last}`,
+        Phone: phone,
+        Email: email,
+        City: `${city}, NJ`,
+        Service: service,
+        Budget: budget || 'Not specified',
+        'Project Details': message || 'No details provided',
+      })
+    });
+
+    if (response.ok) {
+      document.getElementById('form-content').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    } else {
+      const data = await response.json();
+      submitBtn.textContent = data.error || 'Something went wrong — please try again';
+      submitBtn.disabled = false;
+    }
+  } catch (err) {
+    submitBtn.textContent = 'Network error — please try again';
+    submitBtn.disabled = false;
+  }
+}
+
+// ── SCROLL: shrink nav ──
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('main-nav');
+  nav.style.padding = window.scrollY > 60 ? '0.75rem 3rem' : '';
+});
+</script>
+
+</body>
+</html>
